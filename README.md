@@ -74,7 +74,7 @@ http://localhost:3306/api-docs
 ```
 ---
 
-#Example API Requests
+##Example API Requests
 
 Send a Notification
 ```bash
@@ -93,12 +93,12 @@ content-type: application/json
 GET /users/Aditya_123/notifications
 ```
 
-#✅ Assumptions
+##✅ Assumptions
 
 -MongoDB Atlas is used for the database
 -RabbitMQ can run locally or via a cloud provider 
 
-#📂 Project Structure
+##📂 Project Structure
 ```bash
 Controllers/          # Route logic
 Routes/               # API endpoints
