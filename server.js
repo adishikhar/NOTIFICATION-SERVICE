@@ -24,8 +24,8 @@ const main = async () => {
         await startWorker();
         
         PORT = process.env.PORT;
-        app.listen(PORT, () => {
-            console.log("server running on PORT no: " + PORT)
+        app.listen('/', (req,res) => {
+           res.send('Notification Service is running ✅');
         });
     } catch (err) {
         console.error("Startup Error:", err.message);
