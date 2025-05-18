@@ -1,4 +1,4 @@
-const Notification = require('./models/db');
+const Notification = require('../models/db');
 const { getChannel } = require('../setup/rabbitMQ');
 const emailService = require('../services/email');
 const smsService = require('../services/sms');
@@ -18,7 +18,7 @@ const processNotification = async (data) => {
       success = await emailService(notification.message);
     } else if (notification.type === 'sms') {
       success = await smsService(notification.message);
-    } else if (notification.type === 'in-app') {
+    } else if (notification.type === 'inApp') {
       success = await inAppService(notification.message);
     }
 

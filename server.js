@@ -4,8 +4,8 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const bodyparser = require('body-parser');
 const routes = require('./Routes/routes');
-const RabbitMQ = require('./setup/rabbitMQ');
-const startWorker = require('./workers/notificationWorker');
+const {RabbitMQ }= require('./setup/rabbitMQ');
+const {startWorker }= require('./workers/notificationWorker');
 
 
 dotenv.config();
@@ -19,7 +19,7 @@ const main = async () => {
     try {
         await mongoose.connect(process.env.URL);
 
-        await RabbtiMQ();
+        await RabbitMQ();
 
         await startWorker();
         
