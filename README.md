@@ -4,7 +4,7 @@ This is a simple notification backend service that allows sending and fetching n
 
 ---
 
-## 🚀 Features
+##  Features
 
 - REST API to send and fetch notifications
 - Supports multiple types: `email`, `sms`, `inApp`
@@ -13,7 +13,7 @@ This is a simple notification backend service that allows sending and fetching n
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - Node.js + Express
 - MongoDB (via Mongoose)
@@ -23,7 +23,7 @@ This is a simple notification backend service that allows sending and fetching n
 
 ---
 
-## 📦 Installation & Setup
+## Installation & Setup
 
 ### 1. Clone the Repository
 
@@ -66,7 +66,7 @@ RABBITMQ_URL=amqp://localhost:5672
 node server.js
 ```
 
-### 6. 📘 API Documentation
+### 6. API Documentation
 
 If Swagger is enabled, access live API docs at:
 ```bash
@@ -100,15 +100,13 @@ GET /users/Aditya_123/notifications
 
 #📂 Project Structure
 ```bash
-Copy
-Edit
-Controllers/          # Handles route logic
+Controllers/          # Route logic
 Routes/               # API endpoints
 models/               # Mongoose schema
-services/             # Email, SMS, In-App service logic
+services/             # Email, SMS, In-App logic
 setup/                # RabbitMQ connection setup
-workers/              # Background consumer
+workers/              # Background worker
 .env                  # Environment variables
 server.js             # Main server file
-swagger.js            # Swagger UI config (optional)
+swagger.js            # Swagger UI
 ```
