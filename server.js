@@ -6,6 +6,7 @@ const bodyparser = require('body-parser');
 const routes = require('./Routes/routes');
 const {RabbitMQ }= require('./setup/rabbitMQ');
 const {startWorker }= require('./workers/notificationWorker');
+const { swaggerUi, specs } = require('./swagger');
 
 
 dotenv.config();
@@ -24,8 +25,9 @@ const main = async () => {
         await startWorker();
         
         PORT = process.env.PORT;
-        app.listen('/', (req,res) => {
-           res.send('Notification Service is running ✅');
+        app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+        app.listen(PORT, () => {
+            console.log("server running on PORT no: " + PORT)
         });
     } catch (err) {
         console.error("Startup Error:", err.message);
