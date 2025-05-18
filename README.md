@@ -72,30 +72,43 @@ If Swagger is enabled, access live API docs at:
 ```bash
 http://localhost:3306/api-docs
 ```
+---
 
+#Example API Requests
 
-📬 Example API Requests
-➕ Send a Notification
-http
-Copy
-Edit
+Send a Notification
+```bash
 POST /notifications
-Content-Type: application/json
+content-type: application/json
 
 {
-  "userId": "john_doe_123",
-  "type": "inApp",
-  "message": "Welcome to our app!"
+  "userId": "Aditya_123",
+  "type": "sms",
+  "message": "HELLO! I am ADITYA"
 }
-📥 Get All Notifications for a User
-http
+```
+
+ Get All Notifications for a User
+ ```bash
+GET /users/Aditya_123/notifications
+```
+
+#✅ Assumptions
+
+-MongoDB Atlas is used for the database
+-RabbitMQ can run locally or via a cloud provider 
+
+#📂 Project Structure
+```bash
 Copy
 Edit
-GET /users/john_doe_123/notifications
-🌀 Queue and Retry Logic
-All notifications are added to a RabbitMQ queue (notification_queue)
-
-A worker consumes them in the background
-
-If a service fails, it retries up to 4 times
-
+Controllers/          # Handles route logic
+Routes/               # API endpoints
+models/               # Mongoose schema
+services/             # Email, SMS, In-App service logic
+setup/                # RabbitMQ connection setup
+workers/              # Background consumer
+.env                  # Environment variables
+server.js             # Main server file
+swagger.js            # Swagger UI config (optional)
+```
